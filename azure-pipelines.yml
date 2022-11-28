@@ -21,6 +21,10 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
+- task: VSBuild@1
+  inputs:
+    solution: '**\*.sln'
+    vsVersion: '16.0'
 - task: CopyFiles@2
   inputs:
     Contents: '**'
