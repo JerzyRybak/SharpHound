@@ -15,24 +15,17 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetToolInstaller@1
-
-- task: NuGetCommand@2
+- task: DownloadPipelineArtifact@2
   inputs:
-    restoreSolution: '$(solution)'
-
-
-
-- task: VSBuild@1
+    buildType: 'specific'
+    project: '179f94fc-5ca5-40a3-a0a6-e2f2cd906207'
+    definition: '9'
+    buildVersionToDownload: 'latest'
+- task: PowerShell@2
   inputs:
-    solution: '**\*.sln'
-    vsVersion: '16.0'
-- task: CopyFiles@2
-  inputs:
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      dir $(Pipeline.Workspace)
+    targetPath: '$(Pipeline.Workspace)'
