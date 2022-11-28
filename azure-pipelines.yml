@@ -21,7 +21,8 @@ steps:
     project: '179f94fc-5ca5-40a3-a0a6-e2f2cd906207'
     pipeline: '9'
     buildVersionToDownload: 'latest'
-    downloadType: 'single'
+    downloadType: 'specific'
+    itemPattern: 'bin/**'
     downloadPath: '$(System.ArtifactsDirectory)'
 - task: PowerShell@2
   inputs:
