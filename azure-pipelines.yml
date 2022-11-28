@@ -15,17 +15,16 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DownloadPipelineArtifact@2
+- task: DownloadBuildArtifacts@0
+  inputs:
+    buildType: 'specific'
+    project: '179f94fc-5ca5-40a3-a0a6-e2f2cd906207'
+    pipeline: '9'
+    buildVersionToDownload: 'latest'
+    downloadType: 'single'
+    downloadPath: '$(System.ArtifactsDirectory)'
   inputs:
     buildType: 'specific'
     project: '179f94fc-5ca5-40a3-a0a6-e2f2cd906207'
     definition: '9'
     buildVersionToDownload: 'latest'
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your PowerShell commands here.
-      
-      dir $(Pipeline.Workspace)
-    targetPath: '$(Pipeline.Workspace)'
