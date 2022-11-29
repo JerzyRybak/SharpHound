@@ -22,7 +22,7 @@ steps:
     pipeline: '9'
     buildVersionToDownload: 'latest'
     downloadType: 'specific'
-    itemPattern: 'bin/**'
+    itemPattern: '**/*.*'
     downloadPath: '$(System.ArtifactsDirectory)'
 - task: PowerShell@2
   inputs:
