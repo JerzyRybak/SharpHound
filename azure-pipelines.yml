@@ -18,8 +18,8 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     buildType: 'specific'
-    project: '179f94fc-5ca5-40a3-a0a6-e2f2cd906207'
-    definition: '9'
+    project: '90ce32cf-2a9d-4d24-92e5-771e532aa760'
+    definition: '7'
     buildVersionToDownload: 'latest'
     targetPath: '$(Pipeline.Workspace)'
 - task: PowerShell@2
